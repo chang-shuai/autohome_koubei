@@ -39,10 +39,15 @@ ROBOTSTXT_OBEY = True
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
+DEFAULT_REQUEST_HEADERS = {
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
-#}
+    "User-Agent": "Android	8.0.0	autohome	9.2.0	Android",
+    "apisign":"2|862860039014158|autohomebrush|1528876716|2514BD02D7531A793567D971BA314A66",
+	"Host":"koubei.app.autohome.com.cn",
+	"Connection": "Keep-Alive",
+	"Accept-Encoding": "gzip",
+}
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
@@ -64,9 +69,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'autohome_koubei.pipelines.AutohomeKoubeiPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'autohome_koubei.pipelines.AutohomeKoubeiPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,3 +93,10 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# Postgeresql数据库配置
+PG_HOST = "127.0.0.1"
+PG_PORT = "5432"
+PG_USER = "postgres"
+PG_PASSWORD = "123456"
+PG_DBNAME = "postgres"
