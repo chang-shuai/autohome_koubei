@@ -95,8 +95,8 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # Postgeresql数据库配置
-PG_HOST = "127.0.0.1"
+PG_HOST = "192.168.1.201"
 PG_PORT = "5432"
 PG_USER = "postgres"
-PG_PASSWORD = "123456"
-PG_DBNAME = "postgres"
+PG_PASSWORD = "postgres"
+PG_DBNAME = "qichezhijia_koubei"

@@ -15,7 +15,7 @@ class AutohomeKoubeiItem(scrapy.Item):
     series_name = scrapy.Field()            # 车系名 
     user_id = scrapy.Field()                # 用户id 
     user_name = scrapy.Field()              # 用户名
-    release_data = scrapy.Field()           # 发布时间
+    release_date = scrapy.Field()           # 发布时间
     purchasing_date = scrapy.Field()        # 购买时间
     model = scrapy.Field()                  # 车型
     purchase_place = scrapy.Field()         # 购买地点
@@ -46,6 +46,6 @@ class AutohomeKoubeiItem(scrapy.Item):
     discuss_oil_wear = scrapy.Field()       # 油耗
     discuss_comfort = scrapy.Field()        # 舒适性
     discuss_why_choice = scrapy.Field()     # 为什么选这款车
-    updata_data = scrapy.Field()            # 更新日期
+    update_date = scrapy.Field()            # 更新日期
 
 

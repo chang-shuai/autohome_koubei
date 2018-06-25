@@ -20,7 +20,7 @@ class KoubeiSpider(scrapy.Spider):
         item["series_name"] = result["seriesname"]
         item["user_id"] = str(result["userId"])
         item["user_name"] = result["userName"]
-        item["release_data"] = result["LastAppendString"]
+        item["release_date"] = result["LastAppendString"]
         item["purchasing_date"] = result["boughtdate"]
         item["model"] = result["specname"]
         item["purchase_place"] = result["boughtcityname"]
@@ -49,7 +49,7 @@ class KoubeiSpider(scrapy.Spider):
         item["discuss_oil_wear"] = result["oilScene"]["feeling"]
         item["discuss_comfort"] = result["comfortablenessScene"]["feeling"]
         item["discuss_why_choice"] = result["reasonScene"]["feeling"]
-        item["updata_data"] = str(date.today())
+        item["update_date"] = str(date.today())
 
         yield item
 

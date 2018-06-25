@@ -44,7 +44,8 @@ class AutohomeKoubeiPipeline(object):
         return cls(pg_param)
 
     def process_item(self, item, spider):
-        self.cursor.execute(self.koubei_sql, item[""])
+        self.cursor.execute(self.koubei_sql, (item["user_id"], item["series_id"], item["series_name"], item["release_date"], item["discuss_title"], item["discuss_merit"], item["discuss_defect"], item["discuss_facade"], item["discuss_trim"], item["discuss_space"], item["discuss_price"], item["discuss_impetus"], item["discuss_control"], item["discuss_oil_wear"], item["discuss_comfort"], item["discuss_why_choice"], item["update_date"]))
+        self.conn.commit()
         return item
 
     def close_spider(self, spider):
