@@ -18,6 +18,7 @@ class KoubeiSpider(scrapy.Spider):
     def start_requests(self):
         while 0 != self.r.llen("qichezhijia_koubei_url"):
             url = self.r.lpop("qichezhijia_koubei_url")
+            url = url.decode("utf-8")
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
