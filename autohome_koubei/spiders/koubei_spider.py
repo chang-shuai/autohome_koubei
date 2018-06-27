@@ -8,9 +8,9 @@ import redis
 class KoubeiSpider(scrapy.Spider):
     name = "koubei_spider"
 
-    start_urls = [
-        "https://koubei.app.autohome.com.cn/autov9.1.0/alibi/NewEvaluationInfo.ashx?eid=2077290&useCache=1",
-    ]
+    # start_urls = [
+    #     "https://koubei.app.autohome.com.cn/autov9.1.0/alibi/NewEvaluationInfo.ashx?eid=2077290&useCache=1",
+    # ]
 
     def __init__(self):
         self.r = redis.StrictRedis(host="192.168.1.201")
