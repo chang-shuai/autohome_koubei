@@ -19,7 +19,7 @@ class AutohomeKoubeiItem(scrapy.Item):
     purchasing_date = scrapy.Field()        # 购买时间
     model = scrapy.Field()                  # 车型
     purchase_place = scrapy.Field()         # 购买地点
-    dealer = scrapy.Field()                 # 经销商名
+    dealer_name = scrapy.Field()            # 经销商名
     naked_car = scrapy.Field()              # 购入裸车价
     average_fuel_consumption = scrapy.Field()   # 平均油耗
     road_haul = scrapy.Field()              # 行驶里程

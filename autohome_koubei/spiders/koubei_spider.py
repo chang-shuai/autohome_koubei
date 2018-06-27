@@ -2,6 +2,7 @@ import scrapy
 import json
 from autohome_koubei.items import AutohomeKoubeiItem
 from datetime import date
+import redis
 
 
 class KoubeiSpider(scrapy.Spider):
@@ -10,6 +11,14 @@ class KoubeiSpider(scrapy.Spider):
     start_urls = [
         "https://koubei.app.autohome.com.cn/autov9.1.0/alibi/NewEvaluationInfo.ashx?eid=2077290&useCache=1",
     ]
+
+    def __init__(self):
+        self.r = redis.StrictRedis(host="192.168.1.201")
+
+    def start_requests(self):
+        while 0 != self.r.llen("qichezhijia_koubei_url"):
+            url = self.r.lpop("qichezhijia_koubei_url")
+            yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
         data = json.loads(response.text)
@@ -24,7 +33,7 @@ class KoubeiSpider(scrapy.Spider):
         item["purchasing_date"] = result["boughtdate"]
         item["model"] = result["specname"]
         item["purchase_place"] = result["boughtcityname"]
-        item["dealer"] = result["dealername"]
+        item["dealer_name"] = result["dealername"]
         item["naked_car"] = result["boughtPrice"]
         item["average_fuel_consumption"] = result["actualOilConsumption"]
         item["road_haul"] = result["drivekilometer"]
